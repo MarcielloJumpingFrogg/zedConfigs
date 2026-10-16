@@ -1,0 +1,85 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+      "ctrl-<":  "vim::GoToPreviousTab",
+      "ctrl->":  "vim::GoToTab"
+    },
+  },
+  {
+    "context": "Editor && vim_mode == insert && !menu",
+    "bindings": {
+      "j k": "vim::NormalBefore",
+      "j j": "vim::NormalBefore",
+      "jj":"vim::NormalBefore"
+    },
+  },
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      // only in normal mode
+      "space r": "editor::Rename",
+      "space l f": "editor::Format",
+      "space space": "tab_switcher::Toggle",
+      "space f": "file_finder::Toggle",
+      "space g s": "search::SelectAllMatches",
+      "space p": "outline::Toggle",
+      "space v": "editor::GoToDefinitionSplit",
+      "space s f": "pane::DeploySearch",
+      "space t": "workspace::NewCenterTerminal",
+      "n": "search::SelectNextMatch",
+      "shift-n": "search::SelectPreviousMatch",
+      "space /": "workspace::NewSearch",
+      "+ +": "workspace::Save",
+      "space g": "git::Blame",
+
+    },
+  },
+  {
+    "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
+    "bindings": {
+      // only in visual mode
+    },
+  },
+  {
+    "context": "Editor && (vim_mode == visual || vim_mode == normal) && !VimWaiting && !menu",
+    "bindings": {
+      // in normal and visual mode
+      "shift-k": "editor::Hover",
+      ";": "command_palette::Toggle",
+      "/ /": "editor::ToggleComments",
+      "alt-j": "editor::MoveLineDown",
+      "alt-k": "editor::MoveLineUp",
+      "g r": "editor::FindAllReferences",
+    },
+  },
+  {
+    "context": "Dock || Terminal || Editor",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "alt-m v": "pane::SplitVertical",
+      "alt-m s": "pane::SplitHorizontal",
+
+      "ctrl-w":"pane::CloseActiveItem"
+    },
+  },
+  {
+    "context": "(vim_mode == normal || Dock) && !Terminal",
+    "bindings": {
+      "space e": "workspace::ToggleLeftDock",
+      "space r": "workspace::ToggleBottomDock",
+    }
+  }
+
+]
