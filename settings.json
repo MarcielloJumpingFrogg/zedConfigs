@@ -7,6 +7,12 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "focus_follows_mouse": {
+    "enabled": true
+  },
+  "minimap": {
+    "show": "never"
+  },
   "title_bar": {
     "open_menus_on_hover": false,
     "button_layout": "platform_default",
@@ -43,11 +49,13 @@
     "show": "never"
   },
   "terminal": {
+    "shell": "system",
+    "dock": "bottom",
     "toolbar": {
       "breadcrumbs": false
     },
     "cursor_shape": "bar",
-    "starts_open": true,
+    "starts_open": false,
     "copy_on_select": true,
     "minimum_contrast": 47.0,
     "scrollbar": {
@@ -58,7 +66,7 @@
   "cursor_blink": false,
   "base_keymap": "VSCode",
   "proxy": "",
-  "bottom_dock_layout": "full",
+  "bottom_dock_layout": "contained",
   "preview_tabs": {
     "enable_preview_from_file_finder": true
   },
@@ -79,10 +87,10 @@
     "trust_all_worktrees": true
   },
   "agent_ui_font_size": 14.0,
-  "ui_font_weight": 250.0,
+  "ui_font_weight": 400.0,
   "ui_font_family": "Fira Code",
   "buffer_line_height": "comfortable",
-  "buffer_font_weight": 300.0,
+  "buffer_font_weight": 400.0,
   "project_panel": {
     "hide_hidden": false,
     "hide_root": false,
@@ -95,7 +103,7 @@
     "dock": "left"
   },
   "outline_panel": {
-    "dock": "left"
+    "dock": "right"
   },
   "collaboration_panel": {
     "dock": "left"
@@ -113,9 +121,9 @@
   },
   "buffer_font_family": "FiraCode Nerd Font Mono",
   "icon_theme": {
-    "mode": "light",
+    "mode": "dark",
     "light": "Material Icon Theme",
-    "dark": "Zed (Default)"
+    "dark": "Material Icon Theme"
   },
   "vim_mode": true,
   "ui_font_size": 16.0,
@@ -123,6 +131,6 @@
   "theme": {
     "mode": "dark",
     "light": "One Light",
-    "dark": "Tokyo Night",
+    "dark": "Catppuccin Mocha",
   },
 }

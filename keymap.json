@@ -10,16 +10,16 @@
     "context": "Workspace",
     "bindings": {
       // "shift shift": "file_finder::Toggle"
-      "ctrl-<":  "vim::GoToPreviousTab",
-      "ctrl->":  "vim::GoToTab"
+      "ctrl-<": "vim::GoToPreviousTab",
+      "ctrl->": "vim::GoToTab",
     },
   },
   {
-    "context": "Editor && vim_mode == insert && !menu",
+    "context": "vim_mode == insert && !menu",
     "bindings": {
       "j k": "vim::NormalBefore",
       "j j": "vim::NormalBefore",
-      "jj":"vim::NormalBefore"
+      "jj": "vim::NormalBefore",
     },
   },
   {
@@ -27,11 +27,11 @@
     "bindings": {
       // only in normal mode
       "space r": "editor::Rename",
-      "space l f": "editor::Format",
-      "space space": "tab_switcher::Toggle",
-      "space f": "file_finder::Toggle",
+      // "space l f": "editor::Format",
+      "space a": "tab_switcher::Toggle",
+      "space space": "file_finder::Toggle",
       "space g s": "search::SelectAllMatches",
-      "space p": "outline::Toggle",
+      "space o": "outline::Toggle",
       "space v": "editor::GoToDefinitionSplit",
       "space s f": "pane::DeploySearch",
       "space t": "workspace::NewCenterTerminal",
@@ -39,9 +39,16 @@
       "shift-n": "search::SelectPreviousMatch",
       "space /": "workspace::NewSearch",
       "+ +": "workspace::Save",
-      "space g": "git::Blame",
-
+      "space ;": "buffer_search::Deploy",
+      // "space g": "git::Blame",
+      "space l s": "buffer_search::Deploy",
     },
+  },
+  {
+    "context": "vim_mode == normal || vim_mode == visual || Terminal",
+    "bindings": {
+      "alt-m z": "workspace::ToggleZoom"
+    }
   },
   {
     "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
@@ -71,7 +78,7 @@
       "alt-m v": "pane::SplitVertical",
       "alt-m s": "pane::SplitHorizontal",
 
-      "ctrl-w":"pane::CloseActiveItem"
+      "ctrl-w": "pane::CloseActiveItem",
     },
   },
   {
@@ -79,7 +86,69 @@
     "bindings": {
       "space e": "workspace::ToggleLeftDock",
       "space r": "workspace::ToggleBottomDock",
+    },
+  },
+  {
+    "context": "vim_operator == d",
+    "unbind": {
+      "s": "vim::PushDeleteSurrounds"
+    }
+  },
+  {
+    "context": "vim_operator == c",
+    "unbind": {
+      "s": [
+        "vim::PushChangeSurrounds",
+        {}
+      ]
+    }
+  },
+  {
+    "context": "vim_operator == helix_m",
+    "unbind": {
+      "s": "vim::PushHelixSurroundAdd"
+    }
+  },
+  {
+    "context": "vim_mode == visual",
+    "unbind": {
+      "s": "vim::Substitute"
+    }
+  },
+  {
+    "context": "vim_mode == helix_select",
+    "unbind": {
+      "s": "vim::Substitute"
+    }
+  },
+  {
+    "context": "(vim_mode == normal || vim_mode == helix_normal) && !menu",
+    "unbind": {
+      "s": "vim::Substitute"
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "unbind": {
+      "s": "workspace::OpenWithSystem"
+    }
+  },
+  {
+    "context": "vim_operator == a || vim_operator == i || vim_operator == cs || vim_operator == helix_next || vim_operator == helix_previous",
+    "unbind": {
+      "s": "vim::Sentence"
+    }
+  },
+  {
+    "context": "vim_operator == a || vim_operator == i || vim_operator == cs || vim_operator == helix_previous || vim_operator == helix_next",
+    "bindings": {
+      "s": "vim::Sentence"
+    }
+  },
+  {
+    "context": "(vim_mode == helix_normal || vim_mode == helix_select) && !menu && menu",
+    "bindings": {
+      "s": "vim::HelixSelectRegex"
     }
   }
-
 ]
